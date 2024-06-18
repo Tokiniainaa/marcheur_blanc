@@ -1,23 +1,28 @@
 package com.marcheurblanc;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
-@Data
 @AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class Rue {
 
     private final String nom;
+
     private final Lieu lieu1;
+
     private final Lieu lieu2;
 
-    public Lieu getDestination(Lieu origine) {
-        if (origine.equals(lieu1)) {
+    public Lieu destination(Lieu origine){
+
+        if (lieu1.equals(origine)){
             return lieu2;
-        } else {
+        }
+        else {
             return lieu1;
         }
     }
-
 
 }
